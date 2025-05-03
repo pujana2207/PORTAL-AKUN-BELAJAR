@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Akun Belajar.id - SMP Negeri 1 Sukasada</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+    }
+    
+    .card {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .btn-primary {
+      background-color: #3b82f6;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+    
+    .btn-wa {
+      background-color: #25D366;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-wa:hover {
+      background-color: #128C7E;
+    }
+    
+    .header-gradient {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    }
+    
+    .footer-gradient {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    }
+    
+    .input-field {
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .input-field:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    
+    .school-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+    
+    @media (max-width: 640px) {
+      .school-logo {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .input-group {
+        flex-direction: column;
+      }
+      
+      .input-group input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      
+      .input-group button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="header-gradient text-white py-4 shadow-lg">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center space-x-3">
+        <img src="https://i.ibb.co.com/3YjdDh2N/logo-sekolah-FINAL.png" alt="School Logo" class="school-logo rounded-full border-2 border-white">
+        <div>
+          <h1 class="text-lg md:text-2xl font-bold">SMP NEGERI 1 SUKASADA</h1>
+          <p class="text-xs md:text-sm opacity-90">Jln. Jelantik Gingsir 26, Sukasada, Buleleng</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    <div class="max-w-2xl mx-auto">
+      <!-- Important Info Section moved to top -->
+      <div class="card bg-blue-50 rounded-xl p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+          <i class="fas fa-info-circle mr-2"></i> Informasi Penting
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+            <span>Pastikan NISN yang dimasukkan sudah benar</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+            <span>Untuk reset password, hubungi admin melalui tombol WhatsApp</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+            <span>Akun Belajar.id digunakan untuk mengakses platform pembelajaran Kemendikbud</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+            <span>Pastikan Anda menggunakan email belajar.id yang aktif</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Search Form -->
+      <div class="card bg-white rounded-xl p-6 md:p-8 mb-8">
+        <div class="text-center mb-8">
+          <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-2">PORTAL AKUN BELAJAR.ID</h2>
+          <div class="w-20 h-1 bg-blue-500 mx-auto mb-4"></div>
+          <p class="text-gray-600 text-sm md:text-base">Cek informasi akun Belajar.id Anda dengan memasukkan NISN</p>
+        </div>
+        
+        <div class="space-y-6">
+          <div>
+            <label for="nisnInput" class="block text-sm font-medium text-gray-700 mb-1">Masukkan NISN</label>
+            <div class="input-group flex space-x-2">
+              <input 
+                type="text" 
+                id="nisnInput" 
+                placeholder="Contoh: 1234567890" 
+                class="input-field flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+              <button 
+                onclick="cekAkun()" 
+                class="btn-primary text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center"
+              >
+                <i class="fas fa-search mr-2"></i> Cek
+              </button>
+            </div>
+          </div>
+          
+          <div id="result" class="transition-all duration-300"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-gradient text-white py-6">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0 text-center md:text-left">
+          <p class="text-xs opacity-70 mt-2">Portal Akun Belajar.id © 2025 | Gede Pujana</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let akunData = [];
+
+    const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT4XMf8icbHLKEnq_AyJoWcMr9QAroffDhSuvvfBeaoyDQLjKgrIq42AgeNO9FmmeJTJ8wltWpBIi6N/pub?gid=0&single=true&output=csv";
+    const ADMIN_WA = "6285156779610"; // Ganti dengan nomor WA admin kamu
+
+    fetch(SHEET_URL)
+      .then(res => res.text())
+      .then(csv => {
+        const rows = csv.split("\n").slice(1);
+        rows.forEach(row => {
+          const [nisn, nama, email] = row.split(",");
+          akunData.push({ nisn: nisn.trim(), nama: nama.trim(), email: email.trim() });
+        });
+      });
+
+    function cekAkun() {
+      const nisnInput = document.getElementById("nisnInput").value.trim();
+      const resultDiv = document.getElementById("result");
+
+      const akun = akunData.find(data => data.nisn === nisnInput);
+
+      if (akun) {
+        const pesan = `Om Swastyastu admin, saya ${akun.nama} (Email: ${akun.email}) ingin mereset password akun Belajar.id saya.`;
+        const waLink = `https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(pesan)}`;
+        resultDiv.innerHTML = `
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-lg">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-green-800 mb-2">Data Ditemukan</h3>
+                <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-sm font-medium text-gray-700">Nama Lengkap:</p>
+                    <p class="text-base font-semibold text-gray-900">${akun.nama}</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium text-gray-700">Email Belajar.id:</p>
+                    <p class="text-base font-semibold text-gray-900">${akun.email}</p>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a href="${waLink}" target="_blank" class="btn-wa text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i> Hubungi Admin untuk Reset Password
+                  </a>
+                </div>
+                <div class="mt-3 bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
+                  <p class="text-sm text-yellow-700 flex items-start">
+                    <i class="fas fa-exclamation-triangle mr-2 mt-1"></i>
+                    Jika lupa password, hubungi admin melalui tombol WhatsApp di atas untuk reset password.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `
+          <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-exclamation-circle text-red-500 text-xl"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-red-800">NISN Tidak Ditemukan</h3>
+                <div class="mt-2 text-sm text-red-700">
+                  <p>NISN yang Anda masukkan tidak terdaftar dalam database kami.</p>
+                  <p class="mt-1">Silakan periksa kembali atau hubungi admin sekolah.</p>
+                </div>
+                <div class="mt-3">
+                  <a href="https://wa.me/${ADMIN_WA}" target="_blank" class="btn-wa text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i> Hubungi Admin
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
